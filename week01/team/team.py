@@ -55,7 +55,7 @@ if __name__ == '__main__':
     for i in range(start, start + range_count):
         if is_prime(i):
             prime_count += 1
-            print(i, end=', ', flush=True)
+            # print(i, end=', ', flush=True)
     print(flush=True)
 
     # Should find 4306 primes

@@ -3,7 +3,7 @@
 Course: CSE 251
 Lesson Week: 03
 File: assignment.py
-Author: <Your Name>
+Author: Aaron Theobald
 
 Purpose: Video Frame Processing
 
@@ -27,11 +27,12 @@ import multiprocessing as mp
 from cse251 import *
 
 # 4 more than the number of cpu's on your computer
-CPU_COUNT = mp.cpu_count() + 4  
+CPU_COUNT = mp.cpu_count() + 4
 
 # TODO Your final video need to have 300 processed frames.  However, while you are 
 # testing your code, set this much lower
-FRAME_COUNT = 20
+# FRAME_COUNT = 20
+FRAME_COUNT = 300
 
 RED   = 0
 GREEN = 1
@@ -43,7 +44,11 @@ def create_new_frame(image_file, green_file, process_file):
 
     # this print() statement is there to help see which frame is being processed
     print(f'{process_file[-7:-4]}', end=',', flush=True)
-
+    # print(
+    #     image_file,
+    #     green_file,
+    #     process_file
+    # )
     image_img = Image.open(image_file)
     green_img = Image.open(green_file)
 
@@ -62,6 +67,12 @@ def create_new_frame(image_file, green_file, process_file):
 
 # TODO add any functions to need here
 
+def create_new_frame_1arg(frame:int):
+    image_file = rf'elephant/image{frame:03d}.png'
+    green_file = rf'green/image{frame:03d}.png'
+    process_file = rf'processed/image{frame:03d}.png'
+    # print(frame)
+    create_new_frame(image_file, green_file, process_file)
 
 
 if __name__ == '__main__':
@@ -71,25 +82,21 @@ if __name__ == '__main__':
     all_process_time = timeit.default_timer()
     log = Log(show_terminal=True)
 
-    xaxis_cpus = []
+    # xaxis_cpus = [1,2,3,4]
+    xaxis_cpus = range(1, CPU_COUNT+1)
     yaxis_times = []
-
+    
+    frames = range(1, FRAME_COUNT+1)
+    
     # TODO Process all frames trying 1 cpu, then 2, then 3, ... to CPU_COUNT
     #      add results to xaxis_cpus and yaxis_times
-
-
-    # sample code: remove before submitting  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    # process one frame #10
-    image_number = 10
-
-    image_file = rf'elephant/image{image_number:03d}.png'
-    green_file = rf'green/image{image_number:03d}.png'
-    process_file = rf'processed/image{image_number:03d}.png'
-
-    start_time = timeit.default_timer()
-    create_new_frame(image_file, green_file, process_file)
-    print(f'\nTime To Process all images = {timeit.default_timer() - start_time}')
-    # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    
+    for cpus in xaxis_cpus:
+        current_process_time = timeit.default_timer()
+        with mp.Pool(cpus) as pool:
+            pool.map(create_new_frame_1arg, frames)
+            
+        yaxis_times.append(timeit.default_timer() - current_process_time)
 
 
     log.write(f'Total Time for ALL processing: {timeit.default_timer() - all_process_time}')

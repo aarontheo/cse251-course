@@ -47,7 +47,7 @@ def find_primes(start, range_count):
     for i in range(start, start + range_count):
         if is_prime(i):
             prime_count += 1
-            print(i, end=', ', flush=True)
+            # print(i, end=', ', flush=True)
     print(flush=True)
 
 def find_primes_threaded(num_threads:int, start:int, range_count:int):

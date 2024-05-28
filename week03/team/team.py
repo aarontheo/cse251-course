@@ -97,6 +97,11 @@ class Board():
     def highlight(self, row, col, on=True):
         """ Turn on/off highlighting for a letter """
         self.highlighting[row][col] = on
+        
+    # def add_highlights(self, highlight_queue:mp.Queue):
+    #     while not highlight_queue.empty():
+    #         (row, col) = highlight_queue.get()
+    #         self.highlight(row, col)
 
     def get_size(self):
         """ Return the size of the board """
@@ -123,15 +128,20 @@ class Board():
         """ Helper function: is the word found on the board at (x, y) in a direction """
         dir_x, dir_y = self.directions[direction]
         highlight_copy = copy.deepcopy(self.highlighting)
+        # highlight_list = []
         for letter in word:
             board_letter = self.get_letter(row, col)
             if board_letter == letter:
                 self.highlight(row, col)
+                # highlight_list.append((row, col))
                 row += dir_x
                 col += dir_y
             else:
                 self.highlighting = copy.deepcopy(highlight_copy)
                 return False
+            # # If the whole word is found, we put all the highlights into the queue outside the process.
+            # for hl in highlight_list:
+            #     queue.put(hl)
         return True
 
     def find_word(self, word):
@@ -144,15 +154,28 @@ class Board():
                         return True
         return False
 
+# def find_word(board:Board, word:string):
+#     if not board.find_word(word):
+#         print(f'Error: Could not find "{word}"')
+        
+def find_word(board_word:tuple[Board, str]):
+    board, word = board_word
+    if not board.find_word(word):
+        print(f'Error: Could not find "{word}"')
 
 def main():
     board = Board()
     board.display()
+    
+    pool = mp.Pool(4)
 
     start = time.perf_counter()
-    for word in words:
-        if not board.find_word(word):
-            print(f'Error: Could not find "{word}"')
+    
+    # for word in words:
+    #     pool.apply_async(find_word, (board, word))
+    pool.map(find_word, [(board, word) for word in words])
+    pool.close()
+    pool.join()
     
     total_time = time.perf_counter() - start
 

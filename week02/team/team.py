@@ -27,7 +27,8 @@ from cse251 import *
 class Request_thread(threading.Thread):
     # TODO - Add code to make an API call and return the results
     # https://realpython.com/python-requests/
-    pass
+    def __init__(self, URL):
+        super.__init__(self, target=lambda x: requests.get(URL))
 
 class Deck:
 
@@ -40,11 +41,13 @@ class Deck:
     def reshuffle(self):
         print('Reshuffle Deck')
         # TODO - add call to reshuffle
+        Request_thread.api_call()
 
 
-    def draw_card(self):
+    def draw_card(self, count):
         # TODO add call to get a card
-        pass
+        requests.get(rf'https://deckofcardsapi.com/api/deck/tocvr8nvaavj/draw/?count={count}')
+        self.remaining -= 1
 
     def cards_remaining(self):
         return self.remaining
@@ -63,7 +66,7 @@ if __name__ == '__main__':
     #        team_get_deck_id.py program once. You can have
     #        multiple decks if you need them
 
-    deck_id = 'ENTER ID HERE'
+    deck_id = 'tocvr8nvaavj'
 
     # Testing Code >>>>>
     deck = Deck(deck_id)

@@ -48,9 +48,3 @@ def split_interval(start, end, c):
 def split_test(n, c):
     print(f"Splitting {n} cookies among {c} children:")
     print(split_num(n, c))
-    
-# for i in range(1,10):
-#     for j in range(1,10):
-#         split_test(i, j)
-
-print(split_interval(0, 10, 5))

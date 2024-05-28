@@ -28,6 +28,7 @@ import math
 import threading 
 import os
 from cse251turtle import *
+from time import sleep
 
 # Include CSE 251 common Python files. 
 from cse251 import *
@@ -94,32 +95,44 @@ def draw_coord_system(tur, x, y, size=300, color='black'):
         tur.backward(size)
         tur.left(90)
 
-def draw_squares(tur):
+def draw_squares(tur, lock:threading.Lock=threading.Lock()):
     """Draw a group of squares"""
     for x in range(-300, 350, 200):
         for y in range(-300, 350, 200):
+            lock.acquire()
             draw_square(tur, x - 50, y + 50, 100)
+            lock.release()
+            sleep(0)
 
 
-def draw_circles(tur):
+def draw_circles(tur, lock:threading.Lock=threading.Lock()):
     """Draw a group of circles"""
     for x in range(-300, 350, 200):
         for y in range(-300, 350, 200):
+            lock.acquire()
             draw_circle(tur, x, y-2, 50)
+            lock.release()
+            sleep(0)
 
 
-def draw_triangles(tur):
+def draw_triangles(tur, lock:threading.Lock=threading.Lock()):
     """Draw a group of triangles"""
     for x in range(-300, 350, 200):
         for y in range(-300, 350, 200):
+            lock.acquire()
             draw_triangle(tur, x-30, y-30+10, 60)
+            lock.release()
+            sleep(0)
 
 
-def draw_rectangles(tur):
+def draw_rectangles(tur, lock:threading.Lock=threading.Lock()):
     """Draw a group of Rectangles"""
     for x in range(-300, 350, 200):
         for y in range(-300, 350, 200):
+            lock.acquire()
             draw_rectangle(tur, x-10, y+5, 20, 15)
+            lock.release()
+            sleep(0)
 
 
 def run_no_threads(tur, log, main_turtle):
@@ -171,6 +184,21 @@ def run_with_threads(tur, log, main_turtle):
     # TODO - Start add your code here.
     # You need to use 4 threads where each thread concurrently drawing one type of shape.
     # You are free to change any functions in this code except main()
+    funcs = [
+    draw_squares,
+    draw_circles,
+    draw_triangles,
+    draw_rectangles
+    ]
+    threads = []
+    lock = threading.Lock()
+    for fun in funcs:
+        new_thread = threading.Thread(target=fun, args=(tur, lock))
+        new_thread.start()
+        threads.append(new_thread)
+    
+    for thread in threads:
+        thread.join()
 
     log.step_timer('All drawing commands have been created')
 
