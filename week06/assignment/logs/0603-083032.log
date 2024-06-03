@@ -1,0 +1,13 @@
+08:30:32| Marble count     = 14
+08:30:32| Marble delay     = 0.01
+08:30:32| Marbles in a bag = 7
+08:30:32| Bagger delay     = 0.05
+08:30:32| Assembler delay  = 0.05
+08:30:32| Wrapper delay    = 0.05
+08:30:32| Create the processes
+08:30:32| Starting the processes
+08:30:32| Waiting for processes to finish
+08:30:33| Contents of boxes.txt
+08:30:33| Large marble: Apollo, marbles: Pale Taupe, Pastel Gray, Shandy, Antique Bronze, Isabelline, Spanish Pink, Sheen Green: 2024-06-03 08:30:33.573451
+08:30:33| Large marble: Winner, marbles: Gold, Indigo, Royal Blue, Mimi Pink, Outrageous Orange, Cotton Candy, Purple Plum: 2024-06-03 08:30:33.654797
+08:30:33| 2

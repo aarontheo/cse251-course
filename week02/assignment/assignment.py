@@ -47,13 +47,33 @@ import threading
 from cse251 import *
 
 # Const Values
-TOP_API_URL = 'http://127.0.0.1:8790'
+TOP_API_URL = "http://127.0.0.1:8790"
 
 # Global Variables
 call_count = 0
 
 
 # TODO Add your threaded class definition here
+class RequestThread(threading.Thread):
+    def __init__(self, URL):
+        super().__init__()
+        self.URL = URL
+        self.lock = threading.Lock()
+        self._result = None
+        self.start()
+    
+    def run(self):
+        self.lock.acquire()
+        self._result = requests.get(self.URL)
+        self.lock.release()
+        global call_count 
+        call_count += 1
+        
+    def result(self):
+        self.lock.acquire()
+        self.lock.release()
+        return self._result
+        
 
 
 # TODO Add any functions you need here
@@ -61,17 +81,30 @@ call_count = 0
 
 def main():
     log = Log(show_terminal=True)
-    log.start_timer('Starting to retrieve data from the server')
+    log.start_timer("Starting to retrieve data from the server")
 
     # TODO Retrieve Top API urls
+    url_dict = RequestThread(TOP_API_URL).result().json()
+    # print(url_dict)
+    # print(requests.get(url_dict))
 
-    # TODO Retireve Details on film 6
-
-    # TODO Display results
-
-    log.stop_timer('Total Time To complete')
-    log.write(f'There were {call_count} calls to the server')
+    # TODO Retrieve Details on film 6
+    film_dict = RequestThread(url_dict['films']+"6").result().json()
     
+    # TODO Display results
+    for key in film_dict:
+        value = film_dict[key]
+        if isinstance(value, list):
+            log.write(f"{key}: {len(value)}")
+            items = []
+            for URL in value:
+                items.append(RequestThread(URL).result().json()["name"])
+            log.write(', '.join(items))
+        else:
+            log.write(f"{key}: {value}")
+    log.stop_timer("Total Time To complete")
+    log.write(f"There were {call_count} calls to the server")
+
 
 if __name__ == "__main__":
     main()

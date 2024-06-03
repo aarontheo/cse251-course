@@ -1,0 +1,35 @@
+14:45:09| Starting to retrieve data from the server
+14:45:11| Revenge of the Sith
+14:45:11| 3
+14:45:11| War! The Republic is crumbling
+under attacks by the ruthless
+Sith Lord, Count Dooku.
+There are heroes on both sides.
+Evil is everywhere.
+
+In a stunning move, the
+fiendish droid leader, General
+Grievous, has swept into the
+Republic capital and kidnapped
+Chancellor Palpatine, leader of
+the Galactic Senate.
+
+As the Separatist Droid Army
+attempts to flee the besieged
+capital with their valuable
+hostage, two Jedi Knights lead a
+desperate mission to rescue the
+captive Chancellor....
+14:45:11| George Lucas
+14:45:11| Rick McCallum
+14:45:11| 2005-05-19
+14:45:11| ['http://127.0.0.1:8790/people/1/', 'http://127.0.0.1:8790/people/2/', 'http://127.0.0.1:8790/people/3/', 'http://127.0.0.1:8790/people/4/', 'http://127.0.0.1:8790/people/5/', 'http://127.0.0.1:8790/people/6/', 'http://127.0.0.1:8790/people/7/', 'http://127.0.0.1:8790/people/10/', 'http://127.0.0.1:8790/people/11/', 'http://127.0.0.1:8790/people/12/', 'http://127.0.0.1:8790/people/13/', 'http://127.0.0.1:8790/people/20/', 'http://127.0.0.1:8790/people/21/', 'http://127.0.0.1:8790/people/33/', 'http://127.0.0.1:8790/people/35/', 'http://127.0.0.1:8790/people/46/', 'http://127.0.0.1:8790/people/51/', 'http://127.0.0.1:8790/people/52/', 'http://127.0.0.1:8790/people/53/', 'http://127.0.0.1:8790/people/54/', 'http://127.0.0.1:8790/people/55/', 'http://127.0.0.1:8790/people/56/', 'http://127.0.0.1:8790/people/58/', 'http://127.0.0.1:8790/people/63/', 'http://127.0.0.1:8790/people/64/', 'http://127.0.0.1:8790/people/67/', 'http://127.0.0.1:8790/people/68/', 'http://127.0.0.1:8790/people/75/', 'http://127.0.0.1:8790/people/78/', 'http://127.0.0.1:8790/people/79/', 'http://127.0.0.1:8790/people/80/', 'http://127.0.0.1:8790/people/81/', 'http://127.0.0.1:8790/people/82/', 'http://127.0.0.1:8790/people/83/']
+14:45:11| ['http://127.0.0.1:8790/planets/1/', 'http://127.0.0.1:8790/planets/2/', 'http://127.0.0.1:8790/planets/5/', 'http://127.0.0.1:8790/planets/8/', 'http://127.0.0.1:8790/planets/9/', 'http://127.0.0.1:8790/planets/12/', 'http://127.0.0.1:8790/planets/13/', 'http://127.0.0.1:8790/planets/14/', 'http://127.0.0.1:8790/planets/15/', 'http://127.0.0.1:8790/planets/16/', 'http://127.0.0.1:8790/planets/17/', 'http://127.0.0.1:8790/planets/18/', 'http://127.0.0.1:8790/planets/19/']
+14:45:11| ['http://127.0.0.1:8790/starships/2/', 'http://127.0.0.1:8790/starships/32/', 'http://127.0.0.1:8790/starships/48/', 'http://127.0.0.1:8790/starships/59/', 'http://127.0.0.1:8790/starships/61/', 'http://127.0.0.1:8790/starships/63/', 'http://127.0.0.1:8790/starships/64/', 'http://127.0.0.1:8790/starships/65/', 'http://127.0.0.1:8790/starships/66/', 'http://127.0.0.1:8790/starships/68/', 'http://127.0.0.1:8790/starships/74/', 'http://127.0.0.1:8790/starships/75/']
+14:45:11| ['http://127.0.0.1:8790/vehicles/33/', 'http://127.0.0.1:8790/vehicles/50/', 'http://127.0.0.1:8790/vehicles/53/', 'http://127.0.0.1:8790/vehicles/56/', 'http://127.0.0.1:8790/vehicles/60/', 'http://127.0.0.1:8790/vehicles/62/', 'http://127.0.0.1:8790/vehicles/67/', 'http://127.0.0.1:8790/vehicles/69/', 'http://127.0.0.1:8790/vehicles/70/', 'http://127.0.0.1:8790/vehicles/71/', 'http://127.0.0.1:8790/vehicles/72/', 'http://127.0.0.1:8790/vehicles/73/', 'http://127.0.0.1:8790/vehicles/76/']
+14:45:11| ['http://127.0.0.1:8790/species/1/', 'http://127.0.0.1:8790/species/2/', 'http://127.0.0.1:8790/species/3/', 'http://127.0.0.1:8790/species/6/', 'http://127.0.0.1:8790/species/15/', 'http://127.0.0.1:8790/species/19/', 'http://127.0.0.1:8790/species/20/', 'http://127.0.0.1:8790/species/23/', 'http://127.0.0.1:8790/species/24/', 'http://127.0.0.1:8790/species/25/', 'http://127.0.0.1:8790/species/26/', 'http://127.0.0.1:8790/species/27/', 'http://127.0.0.1:8790/species/28/', 'http://127.0.0.1:8790/species/29/', 'http://127.0.0.1:8790/species/30/', 'http://127.0.0.1:8790/species/33/', 'http://127.0.0.1:8790/species/34/', 'http://127.0.0.1:8790/species/35/', 'http://127.0.0.1:8790/species/36/', 'http://127.0.0.1:8790/species/37/']
+14:45:11| 2014-12-20T18:49:38.403000Z
+14:45:11| 2014-12-20T20:47:52.073000Z
+14:45:11| http://127.0.0.1:8790/films/6/
+14:45:11| Total Time To complete = 2.02354112
+14:45:11| There were 2 calls to the server
